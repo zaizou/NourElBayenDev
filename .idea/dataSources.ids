@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - laravel@localhost" uuid="0ce17c37-260f-4b2b-ba85-cc7682dd76fa">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="laravel"/>
+    <table name="academy_account" schema="" catalog="laravel" type="TABLE">
+      <column name="account_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nickname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="account_id"/>
+      <exported-key name="taleb_academy_account_account_id_foreign" table="taleb_academy_account" schema="" catalog="laravel" columns="account_id"/>
+    </table>
+    <table name="academy_event" schema="" catalog="laravel" type="TABLE">
+      <column name="event_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="event_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="event_type" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="event_period" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="place_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="event_id"/>
+      <foreign-key name="academy_event_event_period_foreign" columns="event_period" ref-table="event_period" ref-schema="" ref-catalog="laravel" ref-columns="event_period" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="academy_event_place_id_foreign" columns="place_id" ref-table="place" ref-schema="" ref-catalog="laravel" ref-columns="place_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="taleb_event_event_id_foreign" table="taleb_event" schema="" catalog="laravel" columns="event_id"/>
+      <index name="academy_event_event_period_foreign" unique="false" columns="event_period"/>
+      <index name="academy_event_place_id_foreign" unique="false" columns="place_id"/>
+    </table>
+    <table name="academy_prize" schema="" catalog="laravel" type="TABLE">
+      <column name="prize_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="prize_title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="prize_value" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="prize_id"/>
+    </table>
+    <table name="activity_borders" schema="" catalog="laravel" type="TABLE">
+      <column name="activity_borders_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="direction" sqlType="ENUM" precision="10" scale="0" nullable="false" jdbcType="1"/>
+      <column name="from_thoumoun" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="from_hizb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="to_thoumoun" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="to_hizb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="activity_borders_id"/>
+      <exported-key name="quran_hifd_activity_borders_id_foreign" table="quran_hifd" schema="" catalog="laravel" columns="activity_borders_id"/>
+      <exported-key name="quran_mouradjaa_activity_borders_id_foreign" table="quran_mouradjaa" schema="" catalog="laravel" columns="activity_borders_id"/>
+    </table>
+    <table name="articles" schema="" catalog="laravel" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="body" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="published_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cheikh" schema="" catalog="laravel" type="TABLE">
+      <column name="cheikh_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cheikh_issm" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cheikh_laquab" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="cheikh_id"/>
+      <exported-key name="taleb_cheikh_cheikh_id_foreign" table="taleb_cheikh" schema="" catalog="laravel" columns="cheikh_id"/>
+    </table>
+    <table name="event_period" schema="" catalog="laravel" type="TABLE">
+      <column name="event_period" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="season" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="from_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="to_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="event_period"/>
+      <exported-key name="academy_event_event_period_foreign" table="academy_event" schema="" catalog="laravel" columns="event_period"/>
+    </table>
+    <table name="migrations" schema="" catalog="laravel" type="TABLE">
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="password_resets" schema="" catalog="laravel" type="TABLE">
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <index name="password_resets_email_index" unique="false" columns="email"/>
+      <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="person_identification" schema="" catalog="laravel" type="TABLE">
+      <column name="person_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="issm" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="laquab" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="birthday" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="image_url" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="birth_place" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="living_place" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="social_informations" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="person_id"/>
+      <foreign-key name="person_identification_birth_place_foreign" columns="birth_place" ref-table="place" ref-schema="" ref-catalog="laravel" ref-columns="place_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="person_identification_living_place_foreign" columns="living_place" ref-table="place" ref-schema="" ref-catalog="laravel" ref-columns="place_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="person_identification_social_informations_foreign" columns="social_informations" ref-table="person_social_informations" ref-schema="" ref-catalog="laravel" ref-columns="social_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="taleb_personal_id_foreign" table="taleb" schema="" catalog="laravel" columns="personal_id"/>
+      <index name="person_identification_birth_place_foreign" unique="false" columns="birth_place"/>
+      <index name="person_identification_living_place_foreign" unique="false" columns="living_place"/>
+      <index name="person_identification_social_informations_foreign" unique="false" columns="social_informations"/>
+    </table>
+    <table name="person_social_informations" schema="" catalog="laravel" type="TABLE">
+      <column name="social_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="facebook_account" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="twiter_account" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="social_id"/>
+      <exported-key name="person_identification_social_informations_foreign" table="person_identification" schema="" catalog="laravel" columns="social_informations"/>
+    </table>
+    <table name="place" schema="" catalog="laravel" type="TABLE">
+      <column name="place_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="town" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="country" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="place_id"/>
+      <exported-key name="academy_event_place_id_foreign" table="academy_event" schema="" catalog="laravel" columns="place_id"/>
+      <exported-key name="person_identification_birth_place_foreign" table="person_identification" schema="" catalog="laravel" columns="birth_place"/>
+      <exported-key name="person_identification_living_place_foreign" table="person_identification" schema="" catalog="laravel" columns="living_place"/>
+    </table>
+    <table name="quran_hifd" schema="" catalog="laravel" type="TABLE">
+      <column name="hifd_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="activity_borders_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="hifd_id"/>
+      <foreign-key name="quran_hifd_activity_borders_id_foreign" columns="activity_borders_id" ref-table="activity_borders" ref-schema="" ref-catalog="laravel" ref-columns="activity_borders_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="taleb_hifd_hifd_id_foreign" table="taleb_hifd" schema="" catalog="laravel" columns="hifd_id"/>
+      <index name="quran_hifd_activity_borders_id_foreign" unique="false" columns="activity_borders_id"/>
+    </table>
+    <table name="quran_idjaza" schema="" catalog="laravel" type="TABLE">
+      <column name="idjaza_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idjaza_title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="idjaza_detail" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="idjaza_id"/>
+    </table>
+    <table name="quran_mouradjaa" schema="" catalog="laravel" type="TABLE">
+      <column name="mouradjaa_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="activity_borders_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="mouradjaa_id"/>
+      <foreign-key name="quran_mouradjaa_activity_borders_id_foreign" columns="activity_borders_id" ref-table="activity_borders" ref-schema="" ref-catalog="laravel" ref-columns="activity_borders_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="taleb_mouradjaa_mouradjaa_id_foreign" table="taleb_mouradjaa" schema="" catalog="laravel" columns="mouradjaa_id"/>
+      <index name="quran_mouradjaa_activity_borders_id_foreign" unique="false" columns="activity_borders_id"/>
+    </table>
+    <table name="stocks" schema="" catalog="laravel" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="masse" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="students" schema="" catalog="laravel" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nom" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="prenom" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dateNaissance" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="taleb" schema="" catalog="laravel" type="TABLE">
+      <column name="taleb_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="points" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="personal_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="taleb_id"/>
+      <foreign-key name="taleb_personal_id_foreign" columns="personal_id" ref-table="person_identification" ref-schema="" ref-catalog="laravel" ref-columns="person_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="taleb_academy_account_taleb_id_foreign" table="taleb_academy_account" schema="" catalog="laravel" columns="taleb_id"/>
+      <exported-key name="taleb_cheikh_taleb_id_foreign" table="taleb_cheikh" schema="" catalog="laravel" columns="taleb_id"/>
+      <exported-key name="taleb_event_taleb_id_foreign" table="taleb_event" schema="" catalog="laravel" columns="taleb_id"/>
+      <exported-key name="taleb_hifd_taleb_id_foreign" table="taleb_hifd" schema="" catalog="laravel" columns="taleb_id"/>
+      <exported-key name="taleb_mouradjaa_taleb_id_foreign" table="taleb_mouradjaa" schema="" catalog="laravel" columns="taleb_id"/>
+      <index name="taleb_personal_id_foreign" unique="false" columns="personal_id"/>
+    </table>
+    <table name="taleb_academy_account" schema="" catalog="laravel" type="TABLE">
+      <column name="taleb_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="account_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="taleb_academy_account_account_id_foreign" columns="account_id" ref-table="academy_account" ref-schema="" ref-catalog="laravel" ref-columns="account_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="taleb_academy_account_taleb_id_foreign" columns="taleb_id" ref-table="taleb" ref-schema="" ref-catalog="laravel" ref-columns="taleb_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="taleb_academy_account_account_id_foreign" unique="false" columns="account_id"/>
+      <index name="taleb_academy_account_taleb_id_foreign" unique="false" columns="taleb_id"/>
+    </table>
+    <table name="taleb_cheikh" schema="" catalog="laravel" type="TABLE">
+      <column name="taleb_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cheikh_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="taleb_cheikh_cheikh_id_foreign" columns="cheikh_id" ref-table="cheikh" ref-schema="" ref-catalog="laravel" ref-columns="cheikh_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="taleb_cheikh_taleb_id_foreign" columns="taleb_id" ref-table="taleb" ref-schema="" ref-catalog="laravel" ref-columns="taleb_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="taleb_cheikh_cheikh_id_foreign" unique="false" columns="cheikh_id"/>
+      <index name="taleb_cheikh_taleb_id_foreign" unique="false" columns="taleb_id"/>
+    </table>
+    <table name="taleb_event" schema="" catalog="laravel" type="TABLE">
+      <column name="taleb_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="event_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <foreign-key name="taleb_event_event_id_foreign" columns="event_id" ref-table="academy_event" ref-schema="" ref-catalog="laravel" ref-columns="event_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="taleb_event_taleb_id_foreign" columns="taleb_id" ref-table="taleb" ref-schema="" ref-catalog="laravel" ref-columns="taleb_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="taleb_event_event_id_foreign" unique="false" columns="event_id"/>
+      <index name="taleb_event_taleb_id_foreign" unique="false" columns="taleb_id"/>
+    </table>
+    <table name="taleb_hifd" schema="" catalog="laravel" type="TABLE">
+      <column name="taleb_hifd_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="taleb_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="hifd_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="taleb_hifd_id"/>
+      <foreign-key name="taleb_hifd_hifd_id_foreign" columns="hifd_id" ref-table="quran_hifd" ref-schema="" ref-catalog="laravel" ref-columns="hifd_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="taleb_hifd_taleb_id_foreign" columns="taleb_id" ref-table="taleb" ref-schema="" ref-catalog="laravel" ref-columns="taleb_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="taleb_hifd_hifd_id_foreign" unique="false" columns="hifd_id"/>
+      <index name="taleb_hifd_taleb_id_foreign" unique="false" columns="taleb_id"/>
+    </table>
+    <table name="taleb_mouradjaa" schema="" catalog="laravel" type="TABLE">
+      <column name="taleb_mouradjaaid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="taleb_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mouradjaa_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="taleb_mouradjaaid"/>
+      <foreign-key name="taleb_mouradjaa_mouradjaa_id_foreign" columns="mouradjaa_id" ref-table="quran_mouradjaa" ref-schema="" ref-catalog="laravel" ref-columns="mouradjaa_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="taleb_mouradjaa_taleb_id_foreign" columns="taleb_id" ref-table="taleb" ref-schema="" ref-catalog="laravel" ref-columns="taleb_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="taleb_mouradjaa_mouradjaa_id_foreign" unique="false" columns="mouradjaa_id"/>
+      <index name="taleb_mouradjaa_taleb_id_foreign" unique="false" columns="taleb_id"/>
+    </table>
+    <table name="users" schema="" catalog="laravel" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="users_email_unique" unique="true" columns="email"/>
+    </table>
+  </data-source>
+</component>
